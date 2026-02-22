@@ -1,23 +1,31 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class CharacterPattern {
 
-    public String[] getO() {
-        return new String[]{
+    private Map<Character, String[]> patterns = new HashMap<>();
+
+    public CharacterPattern() {
+
+        patterns.put('O', new String[]{
                 "*****",
                 "*   *",
                 "*   *",
                 "*   *",
                 "*****"
-        };
-    }
+        });
 
-    public String[] getP() {
-        return new String[]{
+        patterns.put('P', new String[]{
                 "*****",
                 "*   *",
                 "*****",
                 "*    ",
                 "*    "
-        };
+        });
+    }
+
+    public String[] getPattern(char ch) {
+        return patterns.get(ch);
     }
 }
 
@@ -26,12 +34,16 @@ public class OOPSBannerApp {
     public static void main(String[] args) {
 
         CharacterPattern cp = new CharacterPattern();
+        String word = "OOPS";
 
-        String[] O = cp.getO();
-        String[] P = cp.getP();
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println(O[i] + "  " + O[i] + "  " + P[i] + "  " + P[i]);
+        for (int row = 0; row < 5; row++) {
+            for (int i = 0; i < word.length(); i++) {
+                String[] pattern = cp.getPattern(word.charAt(i));
+                if (pattern != null) {
+                    System.out.print(pattern[row] + "  ");
+                }
+            }
+            System.out.println();
         }
     }
 }
