@@ -1,30 +1,37 @@
+class CharacterPattern {
+
+    public String[] getO() {
+        return new String[]{
+                "*****",
+                "*   *",
+                "*   *",
+                "*   *",
+                "*****"
+        };
+    }
+
+    public String[] getP() {
+        return new String[]{
+                "*****",
+                "*   *",
+                "*****",
+                "*    ",
+                "*    "
+        };
+    }
+}
+
 public class OOPSBannerApp {
 
-    public static void printLine1() {
-        System.out.println("*****  *****  *****  *****");
-    }
-
-    public static void printLine2() {
-        System.out.println("*   *  *   *  *   *  *");
-    }
-
-    public static void printLine3() {
-        System.out.println("*   *  *   *  *****  *****");
-    }
-
-    public static void printLine4() {
-        System.out.println("*   *  *   *  *      *");
-    }
-
-    public static void printLine5() {
-        System.out.println("*****  *****  *      *****");
-    }
-
     public static void main(String[] args) {
-        printLine1();
-        printLine2();
-        printLine3();
-        printLine4();
-        printLine5();
+
+        CharacterPattern cp = new CharacterPattern();
+
+        String[] O = cp.getO();
+        String[] P = cp.getP();
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(O[i] + "  " + O[i] + "  " + P[i] + "  " + P[i]);
+        }
     }
 }
